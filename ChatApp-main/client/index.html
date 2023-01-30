@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head ng-app>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>    
+    <link rel="stylesheet" type = "text/css" href="css/style.css">
+</head>
+<body>
+    <div class="app">
+        <div id="message-from-server"></div>
+        <div class="screen join-screen active">
+            <div class = "form">
+                <h2>Business Chatroom</h2>
+                <div class ="form-input">
+                    <label>Username</label>
+                    <input type ="text" id ="username">
+                </div>
+                <div class ="form-input">
+                    <label for="rooms">Choose a room:</label>
+                    <select id="rooms" name="rooms"></select>  
+                </div>                  
+                <div class="form-input">
+                    <button id = "login">Join</button>
+                </div>
+            </div>
+        </div>
+            <div class ="screen chat-screen">
+                <div class = "header">
+                    <div class ="logo">Chatroom</div>
+                    <button id = "exit-chat" onClick="window.location.reload();">Exit</button>                 
+                </div>
+                <div class ="message-board">
+                </div>
+                <div class="typebox" tabindex="-1">
+                <input type="text" id="message-input">
+                <button id = "send-message">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

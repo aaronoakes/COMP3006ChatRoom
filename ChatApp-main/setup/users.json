@@ -1,0 +1,27 @@
+{
+    "_id" : "odu8Icx7lJLM",
+    "username" : "447777111111",
+    "firstName" : "Les",
+    "lastName" : "Carter",
+    "createdAt" : ISODate("2023-01-29T09:49:54.536+0000"),
+    "updatedAt" : ISODate("2023-01-29T09:49:54.536+0000"),
+    "__v" : NumberInt(0)
+}
+{
+    "_id" : "TONKyGUUj0J3",
+    "username" : "447777222222",
+    "firstName" : "May",
+    "lastName" : "Flower",
+    "createdAt" : ISODate("2023-01-29T09:49:57.241+0000"),
+    "updatedAt" : ISODate("2023-01-29T09:49:57.241+0000"),
+    "__v" : NumberInt(0)
+}
+{
+    "_id" : "Z0g-0hQh4eoZ",
+    "username" : "447777333333",
+    "firstName" : "Bruce",
+    "lastName" : "Smith",
+    "createdAt" : ISODate("2023-01-29T09:50:00.089+0000"),
+    "updatedAt" : ISODate("2023-01-29T09:50:00.089+0000"),
+    "__v" : NumberInt(0)
+}

@@ -1,0 +1,800 @@
+{
+	"info": {
+		"_postman_id": "6d7c8e8e-595c-4390-b4f8-bf536c631548",
+		"name": "Aaron Chat Application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19094711"
+	},
+	"item": [
+		{
+			"name": "User API",
+			"item": [
+				{
+					"name": "Create user 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"User already created\", function () {\r",
+									"  pm.response.to.have.status(500);\r",
+									"  pm.expect(jsonData).to.be.an(\"object\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"447777111111\",\n\t\"firstName\": \"Les\",\n\t\"lastName\": \"Carter\"\t\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{scheme}}://{{host}}/users",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"User already created\", function () {\r",
+									"  pm.response.to.have.status(500);\r",
+									"  pm.expect(jsonData).to.be.an(\"object\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"447777222222\",\n\t\"firstName\": \"May\",\n\t\"lastName\": \"Flower\"\t\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{scheme}}://{{host}}/users",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"User already created\", function () {\r",
+									"  pm.response.to.have.status(500);\r",
+									"  pm.expect(jsonData).to.be.an(\"object\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"447777333333\",\n\t\"firstName\": \"Bruce\",\n\t\"lastName\": \"Smith\"\t\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{scheme}}://{{host}}/users",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"  pm.expect(jsonData).to.be.an(\"object\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{scheme}}://{{host}}/users/{{userId}}",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200 and is a JSON Object\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"  pm.expect(jsonData).to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Users are correct\", () => {\r",
+									"  pm.expect(jsonData.users[1].firstName).to.eql('Les');\r",
+									"  pm.expect(jsonData.users[1].lastName).to.eql('Carter');\r",
+									"  pm.expect(jsonData.users[2].firstName).to.eql('May');\r",
+									"  pm.expect(jsonData.users[2].lastName).to.eql('Flower');\r",
+									"  pm.expect(jsonData.users[3].firstName).to.eql('Bruce');\r",
+									"  pm.expect(jsonData.users[3].lastName).to.eql('Smith');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Has the ID got a length of 12\", () => {\r",
+									"    \r",
+									"    pm.expect(responseJson.users[0]._id).to.have.lengthOf(12);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{scheme}}://{{host}}/users",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{scheme}}://{{host}}/users/{{userId}}",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Authenticate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{scheme}}://{{host}}/auth/{{username}}",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"{{username}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ChatRoom API",
+			"item": [
+				{
+					"name": "The Social",
+					"item": [
+						{
+							"name": "Create \"The Social\" chat room",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n    \"roomName\": \"The Social\",\n    \"adminUserId\": \"Z0g-0hQh4eoZ\"\n    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{scheme}}://{{host}}/room/create",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"room",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Post a message",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response must be valid and have a body\", function () {\r",
+											"     pm.response.to.be.ok;\r",
+											"     pm.response.to.be.withBody;\r",
+											"     pm.response.to.be.json;\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{authToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"messageText\": \"Anyone fancy a drink after work tonight?\"    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{scheme}}://{{host}}/room/3m0ooeRzIrzY/message",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"room",
+										"3m0ooeRzIrzY",
+										"message"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get room conversation",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response must be valid and have a body\", function () {\r",
+											"     pm.response.to.be.ok;\r",
+											"     pm.response.to.be.withBody;\r",
+											"     pm.response.to.be.json;\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{scheme}}://{{host}}/room/3m0ooeRzIrzY?limit=10&page=0",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"room",
+										"3m0ooeRzIrzY"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "page",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get room conversation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://{{API Host}}/room/{{Room Id}}?limit=10&page=0",
+											"protocol": "http",
+											"host": [
+												"{{API Host}}"
+											],
+											"path": [
+												"room",
+												"{{Room Id}}"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "10"
+												},
+												{
+													"key": "page",
+													"value": "0"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1974"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"7b6-ehxJswPLT99VfR4H2ZHc5dW5ERg\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 28 Jan 2023 18:44:12 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"conversation\": [\n        {\n            \"_id\": \"Z0mLXYV7kM\",\n            \"roomId\": \"NGmIGoB7TNew\",\n            \"message\": {\n                \"messageText\": \"I think we should have dress down Friday. Thoughts?\"\n            },\n            \"postedByUserId\": \"447777111111\",\n            \"readByUsers\": [\n                {\n                    \"readByUserId\": \"447777111111\",\n                    \"readAt\": \"2023-01-28T18:22:16.516Z\"\n                }\n            ],\n            \"type\": \"text\",\n            \"createdAt\": \"2023-01-28T18:22:36.523Z\",\n            \"updatedAt\": \"2023-01-28T18:43:59.262Z\",\n            \"__v\": 0,\n            \"postedByUser\": [\n                {\n                    \"_id\": \"447777111111\",\n                    \"firstName\": \"Aaron\",\n                    \"lastName\": \"Oakes\",\n                    \"createdAt\": \"2023-01-28T16:55:53.651Z\",\n                    \"updatedAt\": \"2023-01-28T16:55:53.651Z\",\n                    \"__v\": 0\n                }\n            ]\n        },\n        {\n            \"_id\": \"F4LCiYed5R\",\n            \"roomId\": \"NGmIGoB7TNew\",\n            \"message\": {\n                \"messageText\": \"Good idea. I'm up for that!\"\n            },\n            \"postedByUserId\": \"447777222222\",\n            \"readByUsers\": [\n                {\n                    \"readByUserId\": \"447777222222\",\n                    \"readAt\": \"2023-01-28T18:22:16.516Z\"\n                }\n            ],\n            \"type\": \"text\",\n            \"createdAt\": \"2023-01-28T18:24:36.432Z\",\n            \"updatedAt\": \"2023-01-28T18:43:59.262Z\",\n            \"__v\": 0,\n            \"postedByUser\": [\n                {\n                    \"_id\": \"447777222222\",\n                    \"firstName\": \"May\",\n                    \"lastName\": \"Flower\",\n                    \"createdAt\": \"2023-01-28T17:25:27.258Z\",\n                    \"updatedAt\": \"2023-01-28T17:25:27.258Z\",\n                    \"__v\": 0\n                }\n            ]\n        },\n        {\n            \"_id\": \"r0GKc1pvPR\",\n            \"roomId\": \"NGmIGoB7TNew\",\n            \"message\": {\n                \"messageText\": \"What do you think Bob?\"\n            },\n            \"postedByUserId\": \"447777111111\",\n            \"readByUsers\": [\n                {\n                    \"readByUserId\": \"447777111111\",\n                    \"readAt\": \"2023-01-28T18:22:16.516Z\"\n                }\n            ],\n            \"type\": \"text\",\n            \"createdAt\": \"2023-01-28T18:25:40.119Z\",\n            \"updatedAt\": \"2023-01-28T18:43:59.262Z\",\n            \"__v\": 0,\n            \"postedByUser\": [\n                {\n                    \"_id\": \"447777111111\",\n                    \"firstName\": \"Aaron\",\n                    \"lastName\": \"Oakes\",\n                    \"createdAt\": \"2023-01-28T16:55:53.651Z\",\n                    \"updatedAt\": \"2023-01-28T16:55:53.651Z\",\n                    \"__v\": 0\n                }\n            ]\n        },\n        {\n            \"_id\": \"x5G92HY9uU\",\n            \"roomId\": \"NGmIGoB7TNew\",\n            \"message\": {\n                \"messageText\": \"Bob isn't in work today\"\n            },\n            \"postedByUserId\": \"447777222222\",\n            \"readByUsers\": [\n                {\n                    \"readByUserId\": \"447777222222\",\n                    \"readAt\": \"2023-01-28T18:22:16.516Z\"\n                }\n            ],\n            \"type\": \"text\",\n            \"createdAt\": \"2023-01-28T18:26:02.030Z\",\n            \"updatedAt\": \"2023-01-28T18:43:59.262Z\",\n            \"__v\": 0,\n            \"postedByUser\": [\n                {\n                    \"_id\": \"447777222222\",\n                    \"firstName\": \"May\",\n                    \"lastName\": \"Flower\",\n                    \"createdAt\": \"2023-01-28T17:25:27.258Z\",\n                    \"updatedAt\": \"2023-01-28T17:25:27.258Z\",\n                    \"__v\": 0\n                }\n            ]\n        }\n    ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Suggestion Scheme",
+					"item": [
+						{
+							"name": "Create \"Suggestions\" chat room",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response must be valid and have a body\", function () {\r",
+											"     pm.response.to.be.ok;\r",
+											"     pm.response.to.be.withBody;\r",
+											"     pm.response.to.be.json;\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n    \"roomName\": \"Suggestion Scheme\",\n    \"adminUserId\": \"Z0g-0hQh4eoZ\"\n    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{scheme}}://{{host}}/room/create",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"room",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Post a message",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response must be valid and have a body\", function () {\r",
+											"     pm.response.to.be.ok;\r",
+											"     pm.response.to.be.withBody;\r",
+											"     pm.response.to.be.json;\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{authToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"messageText\": \"I think we should have Dressdown Friday.\"    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{scheme}}://{{host}}/room/piGuKjLyrES-/message",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"room",
+										"piGuKjLyrES-",
+										"message"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get room conversation",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{scheme}}://{{host}}/room/piGuKjLyrES-?limit=10&page=0",
+									"protocol": "{{scheme}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"room",
+										"piGuKjLyrES-"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "page",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get room conversation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://{{API Host}}/room/{{Room Id}}?limit=10&page=0",
+											"protocol": "http",
+											"host": [
+												"{{API Host}}"
+											],
+											"path": [
+												"room",
+												"{{Room Id}}"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "10"
+												},
+												{
+													"key": "page",
+													"value": "0"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1974"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"7b6-ehxJswPLT99VfR4H2ZHc5dW5ERg\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 28 Jan 2023 18:44:12 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"conversation\": [\n        {\n            \"_id\": \"Z0mLXYV7kM\",\n            \"roomId\": \"NGmIGoB7TNew\",\n            \"message\": {\n                \"messageText\": \"I think we should have dress down Friday. Thoughts?\"\n            },\n            \"postedByUserId\": \"447777111111\",\n            \"readByUsers\": [\n                {\n                    \"readByUserId\": \"447777111111\",\n                    \"readAt\": \"2023-01-28T18:22:16.516Z\"\n                }\n            ],\n            \"type\": \"text\",\n            \"createdAt\": \"2023-01-28T18:22:36.523Z\",\n            \"updatedAt\": \"2023-01-28T18:43:59.262Z\",\n            \"__v\": 0,\n            \"postedByUser\": [\n                {\n                    \"_id\": \"447777111111\",\n                    \"firstName\": \"Aaron\",\n                    \"lastName\": \"Oakes\",\n                    \"createdAt\": \"2023-01-28T16:55:53.651Z\",\n                    \"updatedAt\": \"2023-01-28T16:55:53.651Z\",\n                    \"__v\": 0\n                }\n            ]\n        },\n        {\n            \"_id\": \"F4LCiYed5R\",\n            \"roomId\": \"NGmIGoB7TNew\",\n            \"message\": {\n                \"messageText\": \"Good idea. I'm up for that!\"\n            },\n            \"postedByUserId\": \"447777222222\",\n            \"readByUsers\": [\n                {\n                    \"readByUserId\": \"447777222222\",\n                    \"readAt\": \"2023-01-28T18:22:16.516Z\"\n                }\n            ],\n            \"type\": \"text\",\n            \"createdAt\": \"2023-01-28T18:24:36.432Z\",\n            \"updatedAt\": \"2023-01-28T18:43:59.262Z\",\n            \"__v\": 0,\n            \"postedByUser\": [\n                {\n                    \"_id\": \"447777222222\",\n                    \"firstName\": \"May\",\n                    \"lastName\": \"Flower\",\n                    \"createdAt\": \"2023-01-28T17:25:27.258Z\",\n                    \"updatedAt\": \"2023-01-28T17:25:27.258Z\",\n                    \"__v\": 0\n                }\n            ]\n        },\n        {\n            \"_id\": \"r0GKc1pvPR\",\n            \"roomId\": \"NGmIGoB7TNew\",\n            \"message\": {\n                \"messageText\": \"What do you think Bob?\"\n            },\n            \"postedByUserId\": \"447777111111\",\n            \"readByUsers\": [\n                {\n                    \"readByUserId\": \"447777111111\",\n                    \"readAt\": \"2023-01-28T18:22:16.516Z\"\n                }\n            ],\n            \"type\": \"text\",\n            \"createdAt\": \"2023-01-28T18:25:40.119Z\",\n            \"updatedAt\": \"2023-01-28T18:43:59.262Z\",\n            \"__v\": 0,\n            \"postedByUser\": [\n                {\n                    \"_id\": \"447777111111\",\n                    \"firstName\": \"Aaron\",\n                    \"lastName\": \"Oakes\",\n                    \"createdAt\": \"2023-01-28T16:55:53.651Z\",\n                    \"updatedAt\": \"2023-01-28T16:55:53.651Z\",\n                    \"__v\": 0\n                }\n            ]\n        },\n        {\n            \"_id\": \"x5G92HY9uU\",\n            \"roomId\": \"NGmIGoB7TNew\",\n            \"message\": {\n                \"messageText\": \"Bob isn't in work today\"\n            },\n            \"postedByUserId\": \"447777222222\",\n            \"readByUsers\": [\n                {\n                    \"readByUserId\": \"447777222222\",\n                    \"readAt\": \"2023-01-28T18:22:16.516Z\"\n                }\n            ],\n            \"type\": \"text\",\n            \"createdAt\": \"2023-01-28T18:26:02.030Z\",\n            \"updatedAt\": \"2023-01-28T18:43:59.262Z\",\n            \"__v\": 0,\n            \"postedByUser\": [\n                {\n                    \"_id\": \"447777222222\",\n                    \"firstName\": \"May\",\n                    \"lastName\": \"Flower\",\n                    \"createdAt\": \"2023-01-28T17:25:27.258Z\",\n                    \"updatedAt\": \"2023-01-28T17:25:27.258Z\",\n                    \"__v\": 0\n                }\n            ]\n        }\n    ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Get all rooms",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response must be valid and have a body\", function () {\r",
+									"     pm.response.to.be.ok;\r",
+									"     pm.response.to.be.withBody;\r",
+									"     pm.response.to.be.json;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{scheme}}://{{host}}/room",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"room"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mark Conversation As Read By Room id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response must be valid and have a body\", function () {\r",
+									"     pm.response.to.be.ok;\r",
+									"     pm.response.to.be.withBody;\r",
+									"     pm.response.to.be.json;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{scheme}}://{{host}}/room/{{roomId}}/mark-read",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"room",
+								"{{roomId}}",
+								"mark-read"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Message By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response must be valid and have a body\", function () {\r",
+									"     pm.response.to.be.ok;\r",
+									"     pm.response.to.be.withBody;\r",
+									"     pm.response.to.be.json;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{scheme}}://{{host}}/room/{{Message Id}}/delete",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"room",
+								"{{Message Id}}",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

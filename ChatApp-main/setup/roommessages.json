@@ -1,0 +1,36 @@
+{
+    "_id" : "g4SqSEsCfi7w",
+    "roomId" : "3m0ooeRzIrzY",
+    "message" : {
+        "messageText" : "Anyone fancy a drink after work tonight?"
+    },
+    "postedByUserId" : "Z0g-0hQh4eoZ",
+    "readByUsers" : [
+        {
+            "readByUserId" : "Z0g-0hQh4eoZ",
+            "readAt" : ISODate("2023-01-29T11:37:54.372+0000")
+        }
+    ],
+    "type" : "text",
+    "createdAt" : ISODate("2023-01-29T11:42:05.191+0000"),
+    "updatedAt" : ISODate("2023-01-29T11:42:05.191+0000"),
+    "__v" : NumberInt(0)
+}
+{
+    "_id" : "BIIBZUaHtZq4",
+    "roomId" : "piGuKjLyrES-",
+    "message" : {
+        "messageText" : "I think we should have Dressdown Friday."
+    },
+    "postedByUserId" : "Z0g-0hQh4eoZ",
+    "readByUsers" : [
+        {
+            "readByUserId" : "Z0g-0hQh4eoZ",
+            "readAt" : ISODate("2023-01-29T11:37:54.372+0000")
+        }
+    ],
+    "type" : "text",
+    "createdAt" : ISODate("2023-01-29T11:42:14.015+0000"),
+    "updatedAt" : ISODate("2023-01-29T11:42:14.015+0000"),
+    "__v" : NumberInt(0)
+}

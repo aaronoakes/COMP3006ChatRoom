@@ -1,0 +1,16 @@
+{
+    "_id" : "3m0ooeRzIrzY",
+    "roomName" : "The Social",
+    "adminUserId" : "Z0g-0hQh4eoZ",
+    "createdAt" : ISODate("2023-01-29T10:33:23.817+0000"),
+    "updatedAt" : ISODate("2023-01-29T10:33:23.817+0000"),
+    "__v" : NumberInt(0)
+}
+{
+    "_id" : "piGuKjLyrES-",
+    "roomName" : "Suggestion Scheme",
+    "adminUserId" : "Z0g-0hQh4eoZ",
+    "createdAt" : ISODate("2023-01-29T10:33:49.746+0000"),
+    "updatedAt" : ISODate("2023-01-29T10:33:49.746+0000"),
+    "__v" : NumberInt(0)
+}
